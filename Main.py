@@ -33,7 +33,7 @@ textRect.center = (display_w//2, display_h//2)
 # background
 
 
-def intro_background():
+def welcome_background():
     gamedisplay.blit(logo, (0, 0))
 
 
@@ -45,7 +45,7 @@ def game_background():
         gamedisplay.blit(horizontal_line, (0, y_coord))
 
 
-def intro_loop():
+def welcome_loop():
     bumped = False
     while not bumped:
         for event in pygame.event.get():
@@ -58,7 +58,7 @@ def intro_loop():
 
         gamedisplay.fill(black)
         gamedisplay.blit(text, textRect)
-        intro_background()
+        welcome_background()
         pygame.display.update()
         clock.tick(60)
 
@@ -79,7 +79,7 @@ def game_loop():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     print("second space key pressed")
-                    # pass the current coords to next_block()
+
                     blocks.append((sq_x, sq_y))
                     # moves the block -60 after every space bar key press
                     sq_y -= 60
@@ -102,7 +102,7 @@ def game_loop():
         clock.tick(60)
 
 
-intro_loop()
+welcome_loop()
 
 pygame.quit()
 quit()
